@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sections - Livret du Pèlerin Montligeon 2025</title>
+
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>
+    #pdf-viewer {
+      width: 100%;
+      height: 90vh;
+      border: 1px solid #ccc;
+      overflow: auto;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sections</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="sections.html">Sections</a></li>
+        <li><a href="chants.html">Chants</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sections">
+      <h2>Table des Matières</h2>
+      <p>Vous pouvez consulter le livret complet ci-dessous :</p>
+      <div id="pdf-viewer"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Livret du Pèlerin Montligeon</p>
+  </footer>
+
+  <script>
+    const url = 'livret_pelerin_montligeon_2025.pdf';
+
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then(pdf => {
+      const viewer = document.getElementById('pdf-viewer');
+
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        pdf.getPage(pageNum).then(page => {
+          const canvas = document.createElement('canvas');
+          viewer.appendChild(canvas);
+          const context = canvas.getContext('2d');
+          const viewport = page.getViewport({ scale: 1.5 });
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+          page.render(renderContext);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
