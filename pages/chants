@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table des Matières des Chants</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Table des Matières des Chants</h1>
+    <ul>
+        <li>Chants à la Vierge Marie</li>
+        <li>Chants au Christ</li>
+        <li>Confiance et Offrande</li>
+        <li>Louanges et Actions de Grâce</li>
+        <li>Esprit Saint</li>
+        <li>Chants à Saint Joseph</li>
+    </ul>
+    <a href="../index.html">Retour à l'accueil</a>
+</body>
+</html>
