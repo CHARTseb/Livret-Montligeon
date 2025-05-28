@@ -1,1 +1,18 @@
-# Livret-Montligeon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livret du Pèlerin Montligeon 2025</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Livret du Pèlerin Montligeon 2025</h1>
+    <nav>
+        <ul>
+            <li><a href="pages/sections.html">Table des Matières</a></li>
+            <li><a href="pages/chants.html">Table des Matières des Chants</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
